@@ -1,0 +1,110 @@
+
+
+1. <SafeAreaView> </SafeAreaView>  
+* Bu element telefonlardagi side-bar va pastidagi tugmalardan ajratib beradi.
+
+---------------------------------------------------------------------------------------------
+
+2. <StatusBar barStyle={'dark-content'} backgroundColor={'fff'}/>  
+
+* Bu telefonlarning soati bildirshnomalar va batareya foizini bildiradi, ya'ni nav-bar. Ularni ilovaga
+    moslab style bersak bo'ladi.
+
+ATTRIBUTE
+* barStyle -> elementlarning rangi.  dark-content  -  light-content   -   default
+* backgroundColor -> orqa fon rangi 
+* hidden -> bu nav-barni berkitadi
+* transculent -> bunda content topdan: 0 turadi va nav-bar uning tepasiga joylashadi huddi headerga o'xshab
+
+---------------------------------------------------------------------------------------------
+
+3. <Image sourse={{uri:'link'}} sourse={require('./image')}/> 
+
+* 2 xil usulda rasm bersa bo'ladi 
+    1. uri:'link'  link holatda
+    2. require('./image') local holadtda
+
+* Eslatma: rasm ko'rinishi uchun style berilishi va 'png' formatda bo'lishi kerak.
+
+* Rasmlarni asl holatda ko'rsatish uchun resizeMode: 'contain' propertysi ishlatiladi.
+
+---------------------------------------------------------------------------------------------
+
+4. box-shadow 
+
+* ios uchun 
+      shadowColor: '#171717',
+      shadowOffset: {width: 0,  height: 0},
+      shadowOpacity: 0.2,
+      shadowRadius: 3,
+
+* android uchun
+      elevation: 10,   'lekin rang olmaydi'
+
+---------------------------------------------------------------------------------------------
+
+5. RESPONSIVE 
+
+* height o'rniga --> aspectRatio: 1,
+
+---------------------------------------------------------------------------------------------
+
+
+6. <ScrollView> </ScrollView>
+
+* Contentlarimiz ekranga sig'magan holadtda scroll qilish uchun ishlatiladi,
+  bu element ichida flex: 1, ishlamaydi.
+
+---------------------------------------------------------------------------------------------
+
+7. <FlatList></FlatList> 
+
+* Bu element xotirani joyni tejash va tez ishlash uchun ishlatiladi. Render bo'lganida 
+  boshlang'ich 10 ta elementni render qiladi. Ko'rinmayotgan elementlarni berkitib turadi.
+
+ATTRIBUTE 
+* data={array} -> render bo'ladigan arrayni tenglab qo'yish kerak.
+* renderItem={item} -> itemni kiritamiz.
+* horizontal={true} -> bu elementlarni gorizontal scroll qiladi.
+* numColumns={2} -> bu elementlarni ikki qatordan joylashtiradi.
+* onEndReached -> bu funksiya oxirgi element kelganida ishlaydi.
+* onScroll -> bu funksiya scroll bo'lganida ishlaydi ishlaydi.
+
+
+---------------------------------------------------------------------------------------------
+
+8. Tugmalar
+
+8.1 <Button title="Meni boss!" />  -> bu tugma native button , style olmaydi ios va androidda
+  farqli bo'ladi. Title berib ketish shart
+  
+
+8.2 <Pressable> <Text> Meni boss! </Text> </Pressable>
+   Bu button ichida funksiya ishlatsa bo'ladi. Ya'ni bosib turilgan paytida 
+   style yoki textini o'zgartirish mumkin.
+   Misol:
+   <Pressable style={({pressed}) => {
+    return pressed ? style-1 : style-2 }}> 
+     {({pressed}) => {
+       <Text>{pressed ? 'Meni boss' : 'Men bosilganman'}</Text>
+     }} 
+   </Pressable>
+
+
+8.3 <TouchableHighlight> <Text> Meni boss! </Text> </TouchableHighlight>
+
+ATTRIBUTE 
+ * onPress={() => {}}  ->  bo'lmasa bosilmaydi.
+ * underlayColor={'red'}  ->  bosilgan payt orqa fon qizil bo'ladi.
+
+
+8.4  <TouchableOpacity> <Text> Meni boss! </Text> </TouchableOpacity>
+* Bu bosilganda shaffoflashadi
+f
+ATTRIBUTE 
+ * activeOpacity={ 0, 0.1 ... 0.9, 1 }  -> shaffoflashtirishni nazorat qiladi.
+awd
+
+awdawdwadawdwadwadawdwawwww
+
+ 
